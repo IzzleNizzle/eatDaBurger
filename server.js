@@ -16,42 +16,13 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var mysql = require("mysql");
-var connection;
+// testing for importing my connection for the database
+connection = require("./config/connection");
 
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "wishes_db"
-  });
-}
-
-
-
-
-// var connection = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "",
-//   database: "wishes_db"
-// });
-
-connection.connect(function (err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-
-  console.log("connected as id " + connection.threadId);
-});
 
 // Root get route.
 app.get("/", function (req, res) {
-  connection.query("SELECT * FROM wishes;", function (err, data) {
+  connection.query("SELECT * FROM burgers;", function (err, data) {
     if (err) {
       throw err;
     }
@@ -60,9 +31,9 @@ app.get("/", function (req, res) {
     // console.log('The solution is: ', data);
 
     // Test it.
-    // res.send(data);
-
-    res.render("index", { wishes: data });
+    res.send(data);
+    console.log(data);
+    
   });
 });
 
