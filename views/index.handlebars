@@ -1,20 +1,40 @@
-<h1>Wish Saver</h1>
+<h1>Eat Da Burger!!</h1>
 
-<h3>Save Wishes</h3>
+<h2>Burgers!</h2>
 
 <ul>
-  {{#each wishes}}
-  	<li>
-  	   <p>ID: {{this.id}}</p>
-       <p>Wish: {{this.wish}}</p>
-  	</li>
+  {{#each burgers}}
+    <li>
+      <p>Type: {{id}}</p>
+      <p>Pet: {{burger_name}}</p>
+      <p>Fierceness: {{devoured}}</p>
+    </li>
+    {{> cats/cat-block devoured=false}}
   {{/each}}
 </ul>
 
-<div>
-  <form action="/" method="POST">
-  	<textarea type="text" name="wish"></textarea>
+<h2>Burgers that have been devoured!</h2>
 
-  	<button type="submit">Submit</button>
-  </form>
-</div>
+<ul>
+  {{#each burgers}}
+    {{!-- {{#if devoured>0}} --}}
+    {{!-- {{/if}} --}}
+  {{/each}}
+</ul>
+
+<h2>Add a Cat</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Cat Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <div class="form-group">
+    <label for="sleepy">Sleepy?</label><br>
+    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
+    <input type="radio" name="sleepy" value="0"> Awake
+  </div>
+
+  <button type="submit">Add Cat</button>
+</form>
