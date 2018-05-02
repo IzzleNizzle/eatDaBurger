@@ -26,8 +26,7 @@ $(function() {
     event.preventDefault();
 
     var newCat = {
-      name: $("#ca").val().trim(),
-      sleepy: $("[name=sleepy]:checked").val().trim()
+      name: $("#ca").val().trim()
     };
 
     // Send the POST request.
