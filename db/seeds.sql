@@ -1,6 +1,5 @@
-INSERT INTO cats (name) VALUES ('Meeses');
-INSERT INTO cats (name) VALUES ('Bobbi');
-INSERT INTO cats (name, sleepy) VALUES ('Sylvester', true);
-INSERT INTO cats (name, sleepy) VALUES ('Marilyn Manson', true);
-INSERT INTO cats (name, sleepy) VALUES ('Joe Biden', true);
-INSERT INTO cats (name) VALUES ('Owens');
+
+-- Insert a set of records.
+INSERT INTO burgers (burger_name) VALUES ('Westerner');
+INSERT INTO burgers (burger_name) VALUES ('Bacon Cheese');
+INSERT INTO burgers (burger_name) VALUES ('Double Heart Attack');
